@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Pretendard 폰트 import */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+
+/* 기본 스타일 */
+body {
+  margin: 0;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 모달 열릴 때 스크롤바 관련 클래스 */
+.modal-open {
+  overflow: hidden !important;
+}
+
+/* 스크롤바 너비 계산을 통해 적용한 패딩을 가진 클래스 */
+.compensate-scrollbar {
+  padding-right: var(--scrollbar-width, 0) !important;
+}
+
+/* 스크롤바 스타일을 일관되게 유지하기 위한 클래스 */
+.scrollbar-stable {
+  /* 항상 스크롤바를 표시 */
+  overflow-y: scroll;
+}
+
+/* 스크롤바 숨김 클래스 */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* 헤더 및 컨테이너 관련 클래스 */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  width: 100vw; /* viewport width를 사용해 항상 전체 너비 차지 */
+}
+
+/* 헤더 내용 */
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 모달 또는 드롭다운이 열릴 때 backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}
+
+/* 드롭다운 및 모달 공통 스타일 */
+.dropdown-menu,
+.modal-content {
+  position: absolute;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 50;
+}
+
+/* 반응형 유틸리티 */
+@media (max-width: 640px) {
+  .header-mobile {
+    flex-direction: column;
+  }
+}
+
+/* 마크다운 스타일링 */
+.markdown-content p {
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content h1, 
+.markdown-content h2, 
+.markdown-content h3, 
+.markdown-content h4, 
+.markdown-content h5, 
+.markdown-content h6 {
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content h1 { font-size: 1.5rem; }
+.markdown-content h2 { font-size: 1.25rem; }
+.markdown-content h3 { font-size: 1.125rem; }
+
+.markdown-content ul, 
+.markdown-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown-content ul {
+  list-style-type: disc;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+}
+
+.markdown-content blockquote {
+  border-left: 3px solid #cbd5e0;
+  padding-left: 0.75rem;
+  color: #718096;
+  font-style: italic;
+  margin: 0.5rem 0;
+}
+
+/* 다크모드 대응 */
+@media (prefers-color-scheme: dark) {
+  .markdown-content blockquote {
+    border-color: #4a5568;
+    color: #a0aec0;
+  }
+}
+
+.dark .markdown-content blockquote {
+  border-color: #4a5568;
+  color: #a0aec0;
+}
