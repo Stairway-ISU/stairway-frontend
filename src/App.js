@@ -1,17 +1,23 @@
-// Fixed App.js - Remove duplicate BrowserRouter
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
-import Home from './pages/Home';
-import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <main className={`flex-1 ${'pt-0'} bg-white dark:bg-black transition-colors duration-200`}>
-      </main>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
