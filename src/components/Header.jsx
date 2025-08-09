@@ -1,11 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
+import { FaShoppingCart } from 'react-icons/fa'; // 장바구니 아이콘
 
 export default function Header() {
   const { pathname } = useLocation();
 
   const navItem = (to, label) => {
-    const isActive = pathname === to;
-
     return (
       <Link
         to={to}
@@ -14,7 +13,7 @@ export default function Header() {
         {label}
         <span
           className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 transition-all duration-300 ${
-            isActive ? "w-8 bg-blue-600" : "w-0 bg-transparent"
+            pathname === to ? "w-8 bg-blue-600" : "w-0 bg-transparent"
           }`}
         />
       </Link>
@@ -26,23 +25,24 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* 왼쪽: 로고 + 메뉴 */}
         <div className="flex items-center space-x-6">
-          <h1 className="text-2xl font-bold text-blue-600">MyApp</h1>
+          <Link to="/" className="text-2xl font-bold hover:opacity-80">
+            Stair
+          </Link>
           <nav className="flex space-x-4 relative">
-            {navItem("/", "Home")}
-            {navItem("/about", "About")}
-            {navItem("/contact", "Contact")}
+            {navItem("/sale", "세일")}
+            {navItem("/recommand", "추천")}
+            {navItem("/product", "상품")}
           </nav>
         </div>
 
-        {/* 오른쪽: 로그인 버튼 */}
-        <div>
-          <Link
-            to="/login"
-            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition"
-          >
+        <nav className="flex items-center space-x-6 text-sm">
+          <Link to="/shoppingcart" className="hover:underline">
+            장바구니
+          </Link>
+          <Link to="/login" className="hover:underline">
             로그인
           </Link>
-        </div>
+        </nav>
       </div>
     </header>
   );

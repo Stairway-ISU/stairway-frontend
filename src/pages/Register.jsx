@@ -1,4 +1,4 @@
-import { authService } from "../services/AuthService";
+import { AuthService } from "../services/AuthService";
 import React, {useState, useEffect} from 'react';
 
 export default function Register() {
@@ -14,7 +14,7 @@ export default function Register() {
   
     setLoading(true);
     try {
-      authService.register(id, password);
+      AuthService.register(id, password);
     } catch (error) {
       console.error('Login error:', error);
     } finally {

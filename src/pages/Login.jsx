@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React, {useState, useEffect} from 'react';
-import { authService } from "../services/AuthService";
+import { AuthService } from "../services/AuthService";
 
 export default function Login() {
   const [id, setId] = useState("");
@@ -13,7 +13,7 @@ export default function Login() {
 
     setLoading(true);
     try {
-      authService.login(id, password);
+      AuthService.login(id, password);
     } catch (error) {
       console.error('Login error:', error);
     } finally {
